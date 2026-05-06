@@ -1,0 +1,34 @@
+﻿@model Catalogo.Models.Item
+
+<h1>@Model.Titulo</h1>
+
+<!-- ===================== -->
+<!-- Información del videojuego -->
+<!-- ===================== -->
+<div>
+    <p>
+        <strong>Género:</strong> @Model.Genero
+    </p>
+
+    <p>
+        <strong>Consola:</strong> @Model.Consola
+    </p>
+
+    <p>
+        <strong>Año:</strong> @Model.Ano
+    </p>
+
+    <p>
+        <strong>Descripción:</strong><br />
+        @Model.Descripcion
+    </p>
+</div>
+
+<hr />
+
+<!-- ===================== -->
+<!-- Navegación -->
+<!-- ===================== -->
+<a asp-action="Index">
+    &larr; Volver al Catálogo
+</a>

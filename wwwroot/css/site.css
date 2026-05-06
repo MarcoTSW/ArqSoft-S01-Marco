@@ -1,0 +1,742 @@
+/* ============================================================
+   CATÁLOGO DE VIDEOJUEGOS - site.css
+   ============================================================
+   VARIABLES PRINCIPALES - Edita aquí para cambiar colores
+   ============================================================ */
+
+:root {
+    /* --- Colores principales --- */
+    --color-fondo: #0d0d14; /* Fondo general de la página */
+    --color-fondo-card: #13131f; /* Fondo de las tarjetas */
+    --color-fondo-nav: #09090f; /* Fondo del navbar */
+    --color-borde: #2a2a3d; /* Bordes sutiles */
+    /* --- Acento / Neon (cámbialo a tu color favorito) --- */
+    --color-acento: #7c3aed; /* Morado neón principal */
+    --color-acento-hover: #9d5ff5; /* Acento al hacer hover */
+    --color-acento-glow: rgba(124, 58, 237, 0.35); /* Sombra neón */
+    --color-acento2: #06d6a0; /* Segundo acento (verde neón) */
+    /* --- Textos --- */
+    --color-texto: #e2e2f0; /* Texto principal */
+    --color-texto-suave: #8888aa; /* Texto secundario / subtítulos */
+    --color-texto-titulo: #ffffff; /* Títulos */
+    /* --- Estados --- */
+    --color-exito: #06d6a0;
+    --color-error: #ff4d6d;
+    --color-alerta: #ffd60a;
+    /* --- Tipografía --- */
+    --fuente-titulo: 'Rajdhani', 'Segoe UI', sans-serif;
+    --fuente-cuerpo: 'Inter', 'Segoe UI', sans-serif;
+    /* --- Espaciado y bordes --- */
+    --radio-card: 12px;
+    --radio-btn: 8px;
+    --sombra-card: 0 4px 24px rgba(0,0,0,0.5);
+    --sombra-acento: 0 0 20px var(--color-acento-glow);
+    /* --- Transiciones --- */
+    --transicion: 0.25s ease;
+}
+
+
+/* ============================================================
+   FUENTES EXTERNAS (Google Fonts)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+
+/* ============================================================
+   RESET Y BASE
+   ============================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-cuerpo);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 60px;
+    /* Textura sutil de fondo */
+    background-image: radial-gradient(ellipse at 20% 50%, rgba(124, 58, 237, 0.07) 0%, transparent 60%), radial-gradient(ellipse at 80% 10%, rgba(6, 214, 160, 0.05) 0%, transparent 50%);
+}
+
+
+/* ============================================================
+   SCROLLBAR PERSONALIZADA
+   ============================================================ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-fondo-nav);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-acento);
+    border-radius: 4px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-acento-hover);
+    }
+
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+    background-color: var(--color-fondo-nav) !important;
+    border-bottom: 1px solid var(--color-borde);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    padding: 0.75rem 1.5rem;
+}
+
+.navbar-brand {
+    font-family: var(--fuente-titulo);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-texto-titulo) !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+    .navbar-brand::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--color-acento), var(--color-acento2));
+        border-radius: 2px;
+    }
+
+.nav-link {
+    color: var(--color-texto-suave) !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem !important;
+    border-radius: var(--radio-btn);
+    transition: color var(--transicion), background var(--transicion);
+}
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: var(--color-texto-titulo) !important;
+        background: rgba(124, 58, 237, 0.15);
+    }
+
+.navbar-toggler {
+    border-color: var(--color-borde);
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+
+/* ============================================================
+   TÍTULOS
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulo);
+    color: var(--color-texto-titulo);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+/* Título de página con línea decorativa */
+.page-title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+    .page-title::after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 60%;
+        background: linear-gradient(90deg, var(--color-acento), transparent);
+        margin-top: 6px;
+        border-radius: 2px;
+    }
+
+
+/* ============================================================
+   TARJETAS DE VIDEOJUEGO
+   ============================================================ */
+.card {
+    background-color: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-card);
+    box-shadow: var(--sombra-card);
+    transition: transform var(--transicion), box-shadow var(--transicion), border-color var(--transicion);
+    overflow: hidden;
+    color: var(--color-texto);
+}
+
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--sombra-acento);
+        border-color: var(--color-acento);
+    }
+
+.card-img-top {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.04);
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-family: var(--fuente-titulo);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-texto-titulo);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
+}
+
+.card-text {
+    color: var(--color-texto-suave);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Badge de género/categoría en la tarjeta */
+.badge-genero {
+    background: rgba(124, 58, 237, 0.2);
+    color: var(--color-acento-hover);
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Precio del juego */
+.precio {
+    font-family: var(--fuente-titulo);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-acento2);
+}
+
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+
+/* Botón principal */
+.btn-primary {
+    background: var(--color-acento);
+    border-color: var(--color-acento);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: var(--radio-btn);
+    padding: 0.5rem 1.4rem;
+    transition: background var(--transicion), box-shadow var(--transicion), transform var(--transicion);
+}
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background: var(--color-acento-hover);
+        border-color: var(--color-acento-hover);
+        box-shadow: var(--sombra-acento);
+        transform: translateY(-1px);
+        color: #fff;
+    }
+
+/* Botón secundario */
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto-suave);
+    border-radius: var(--radio-btn);
+    padding: 0.5rem 1.4rem;
+    transition: all var(--transicion);
+}
+
+    .btn-secondary:hover {
+        background: var(--color-borde);
+        color: var(--color-texto-titulo);
+        border-color: var(--color-acento);
+    }
+
+/* Botón de peligro / eliminar */
+.btn-danger {
+    background: transparent;
+    border: 1px solid var(--color-error);
+    color: var(--color-error);
+    border-radius: var(--radio-btn);
+    padding: 0.5rem 1.4rem;
+    transition: all var(--transicion);
+}
+
+    .btn-danger:hover {
+        background: var(--color-error);
+        color: #fff;
+        box-shadow: 0 0 16px rgba(255, 77, 109, 0.3);
+    }
+
+/* Botón outline acento */
+.btn-outline-acento {
+    background: transparent;
+    border: 1px solid var(--color-acento);
+    color: var(--color-acento-hover);
+    border-radius: var(--radio-btn);
+    padding: 0.45rem 1.2rem;
+    font-size: 0.88rem;
+    transition: all var(--transicion);
+}
+
+    .btn-outline-acento:hover {
+        background: var(--color-acento);
+        color: #fff;
+        box-shadow: var(--sombra-acento);
+    }
+
+/* Quitar el focus outline por defecto y reemplazarlo */
+.btn:focus, .btn:active:focus {
+    box-shadow: 0 0 0 0.2rem var(--color-acento-glow);
+    outline: none;
+}
+
+
+/* ============================================================
+   FORMULARIOS
+   ============================================================ */
+.form-control, .form-select {
+    background-color: #1a1a2e;
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    border-radius: var(--radio-btn);
+    padding: 0.6rem 1rem;
+    transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+    .form-control:focus, .form-select:focus {
+        background-color: #1a1a2e;
+        border-color: var(--color-acento);
+        color: var(--color-texto);
+        box-shadow: 0 0 0 3px var(--color-acento-glow);
+        outline: none;
+    }
+
+    .form-control::placeholder {
+        color: var(--color-texto-suave);
+        opacity: 0.7;
+    }
+
+.form-label {
+    color: var(--color-texto-suave);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    margin-bottom: 0.4rem;
+}
+
+.form-floating > label {
+    color: var(--color-texto-suave);
+}
+
+/* Input de búsqueda */
+.buscador {
+    background-color: #1a1a2e;
+    border: 1px solid var(--color-borde);
+    border-radius: 30px;
+    color: var(--color-texto);
+    padding: 0.6rem 1.2rem;
+    width: 100%;
+    max-width: 400px;
+    transition: border-color var(--transicion);
+}
+
+    .buscador:focus {
+        border-color: var(--color-acento);
+        box-shadow: var(--sombra-acento);
+        outline: none;
+    }
+
+
+/* ============================================================
+   TABLA (para vistas de lista/inventario)
+   ============================================================ */
+.table {
+    color: var(--color-texto);
+    border-color: var(--color-borde);
+}
+
+    .table thead tr {
+        background-color: rgba(124, 58, 237, 0.15);
+        border-bottom: 2px solid var(--color-acento);
+    }
+
+    .table thead th {
+        color: var(--color-texto-titulo);
+        font-family: var(--fuente-titulo);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 1rem 0.75rem;
+    }
+
+    .table tbody tr {
+        border-bottom: 1px solid var(--color-borde);
+        transition: background var(--transicion);
+    }
+
+        .table tbody tr:hover {
+            background-color: rgba(124, 58, 237, 0.08);
+        }
+
+    .table td {
+        padding: 0.85rem 0.75rem;
+        vertical-align: middle;
+        color: var(--color-texto);
+    }
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255,255,255,0.02);
+}
+
+
+/* ============================================================
+   BADGES / ETIQUETAS
+   ============================================================ */
+.badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+    .badge.bg-primary {
+        background-color: var(--color-acento) !important;
+    }
+
+    .badge.bg-success {
+        background-color: var(--color-exito) !important;
+        color: #000;
+    }
+
+    .badge.bg-danger {
+        background-color: var(--color-error) !important;
+    }
+
+    .badge.bg-warning {
+        background-color: var(--color-alerta) !important;
+        color: #000;
+    }
+
+    .badge.bg-secondary {
+        background-color: var(--color-borde) !important;
+        color: var(--color-texto);
+    }
+
+
+/* ============================================================
+   ALERTAS / MENSAJES
+   ============================================================ */
+.alert {
+    border-radius: var(--radio-btn);
+    border: none;
+    font-size: 0.92rem;
+    padding: 0.85rem 1.2rem;
+}
+
+.alert-success {
+    background: rgba(6, 214, 160, 0.12);
+    color: var(--color-exito);
+    border-left: 3px solid var(--color-exito);
+}
+
+.alert-danger {
+    background: rgba(255, 77, 109, 0.12);
+    color: var(--color-error);
+    border-left: 3px solid var(--color-error);
+}
+
+.alert-warning {
+    background: rgba(255, 214, 10, 0.1);
+    color: var(--color-alerta);
+    border-left: 3px solid var(--color-alerta);
+}
+
+.alert-info {
+    background: rgba(124, 58, 237, 0.12);
+    color: var(--color-acento-hover);
+    border-left: 3px solid var(--color-acento);
+}
+
+
+/* ============================================================
+   PÁGINA DE DETALLE DE VIDEOJUEGO
+   ============================================================ */
+.detalle-imagen {
+    width: 100%;
+    border-radius: var(--radio-card);
+    box-shadow: var(--sombra-acento);
+    border: 1px solid var(--color-borde);
+}
+
+.detalle-titulo {
+    font-family: var(--fuente-titulo);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-texto-titulo);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.detalle-info dt {
+    color: var(--color-texto-suave);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.detalle-info dd {
+    color: var(--color-texto);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/* ============================================================
+   PAGINACIÓN
+   ============================================================ */
+.page-item .page-link {
+    background-color: var(--color-fondo-card);
+    border-color: var(--color-borde);
+    color: var(--color-texto-suave);
+    transition: all var(--transicion);
+}
+
+    .page-item .page-link:hover {
+        background-color: var(--color-acento);
+        border-color: var(--color-acento);
+        color: #fff;
+    }
+
+.page-item.active .page-link {
+    background-color: var(--color-acento);
+    border-color: var(--color-acento);
+    color: #fff;
+    box-shadow: var(--sombra-acento);
+}
+
+.page-item.disabled .page-link {
+    background-color: var(--color-fondo-nav);
+    border-color: var(--color-borde);
+    color: var(--color-texto-suave);
+    opacity: 0.4;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--color-fondo-nav);
+    border-top: 1px solid var(--color-borde);
+    color: var(--color-texto-suave);
+    font-size: 0.85rem;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+    .footer a {
+        color: var(--color-acento-hover);
+        text-decoration: none;
+    }
+
+        .footer a:hover {
+            color: var(--color-acento2);
+        }
+
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal-content {
+    background-color: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-card);
+    color: var(--color-texto);
+}
+
+.modal-header {
+    border-bottom-color: var(--color-borde);
+}
+
+.modal-footer {
+    border-top-color: var(--color-borde);
+}
+
+.modal-title {
+    font-family: var(--fuente-titulo);
+    letter-spacing: 1px;
+}
+
+.btn-close {
+    filter: invert(1) brightness(0.6);
+}
+
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+a {
+    color: var(--color-acento-hover);
+    text-decoration: none;
+    transition: color var(--transicion);
+}
+
+    a:hover {
+        color: var(--color-acento2);
+    }
+
+
+/* ============================================================
+   VALIDACIÓN DE FORMULARIOS
+   ============================================================ */
+.field-validation-error,
+.text-danger {
+    color: var(--color-error) !important;
+    font-size: 0.82rem;
+}
+
+.input-validation-error {
+    border-color: var(--color-error) !important;
+    box-shadow: 0 0 0 3px rgba(255, 77, 109, 0.2) !important;
+}
+
+.validation-summary-errors ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: var(--color-error);
+    font-size: 0.88rem;
+}
+
+
+/* ============================================================
+   UTILIDADES EXTRA
+   ============================================================ */
+
+/* Divisor con gradiente */
+.divisor-acento {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-acento), transparent);
+    margin: 2rem 0;
+}
+
+/* Texto con color acento */
+.texto-acento {
+    color: var(--color-acento-hover);
+}
+
+.texto-acento2 {
+    color: var(--color-acento2);
+}
+
+.texto-suave {
+    color: var(--color-texto-suave);
+}
+
+/* Glow en texto */
+.texto-glow {
+    text-shadow: 0 0 20px var(--color-acento-glow);
+}
+
+/* Container con borde y padding (para secciones) */
+.seccion-box {
+    background: var(--color-fondo-card);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-card);
+    padding: 1.5rem;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+
+    .detalle-titulo {
+        font-size: 1.8rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .card-img-top {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* ============================================================
+   FIN DEL ARCHIVO
+   ============================================================
+   GUÍA RÁPIDA DE PERSONALIZACIÓN:
+   - Cambia --color-acento para cambiar el color neón principal
+   - Cambia --color-fondo para el fondo general
+   - Cambia --color-fondo-card para el color de las tarjetas
+   - Agrega tus propias clases al final de este archivo
+   ============================================================ */
