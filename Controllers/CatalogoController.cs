@@ -12,11 +12,11 @@ namespace Catalogo.Controllers
             new Item
             {
                 Id = 1,
-                Titulo = "Devil May Cry",
-                Genero = "Hack and Slash",
-                Ano = 2001,
-                Consola = "PlayStation 2",
-                Descripcion = "Videojuego que trata de un cazador..."
+                Titulo = "Fortnite",
+                Genero = "Battle Royale / Shooter",
+                Ano = 2017,
+                Consola = "Multiplataforma (PC, PS4, PS5, Xbox, Switch)",
+                Descripcion = "Videojuego de supervivencia y construcción donde 100 jugadores luchan por ser el último en pie."
             },
             new Item
             {
