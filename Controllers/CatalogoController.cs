@@ -18,18 +18,10 @@ namespace Catalogo.Controllers
                 Consola = "Multiplataforma (PC, PS4, PS5, Xbox, Switch)",
                 Descripcion = "Videojuego de supervivencia y construcción donde 100 jugadores luchan por ser el último en pie."
             },
+            
             new Item
             {
                 Id = 2,
-                Titulo = "Castlevania: Symphony of the Night",
-                Genero = "Metroidvania",
-                Ano = 1997,
-                Consola = "PlayStation",
-                Descripcion = "Videojuego que trata de un cazador..."
-            },
-            new Item
-            {
-                Id = 3,
                 Titulo = "NieR: Automata",
                 Genero = "Action RPG",
                 Ano = 2017,
@@ -38,7 +30,7 @@ namespace Catalogo.Controllers
             },
             new Item
             {
-                Id = 4,
+                Id = 3,
                 Titulo = "Command and Conquer: Generals",
                 Genero = "Estrategia en tiempo real (RTS)",
                 Ano = 2003,
@@ -47,7 +39,7 @@ namespace Catalogo.Controllers
             },
             new Item
             {
-                Id = 5,
+                Id = 4,
                 Titulo = "League of Legends",
                 Genero = "MOBA",
                 Ano = 2009,
@@ -56,7 +48,7 @@ namespace Catalogo.Controllers
             },
             new Item
             {
-                Id = 6,
+                Id = 5,
                 Titulo = "Need for Speed: Porsche Unleashed",
                 Genero = "Carreras / Simulación",
                 Ano = 2000,
@@ -65,7 +57,7 @@ namespace Catalogo.Controllers
             },
             new Item
             {
-                Id = 7,
+                Id = 6,
                 Titulo = "Emergency 4: Global Fighters for Life",
                 Genero = "Estrategia / Simulación de rescate",
                 Ano = 2006,
