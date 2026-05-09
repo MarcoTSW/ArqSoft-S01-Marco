@@ -53,6 +53,24 @@ namespace Catalogo.Controllers
                 Ano = 2009,
                 Consola = "PC",
                 Descripcion = "Un juego de estrategia por equipos en el que dos grupos de cinco campeones se enfrentan para ver quién destruye antes la base del otro."
+            },
+            new Item
+            {
+                Id = 6,
+                Titulo = "Need for Speed: Porsche Unleashed",
+                Genero = "Carreras / Simulación",
+                Ano = 2000,
+                Consola = "PC / PlayStation",
+                Descripcion = "Un simulador de conducción centrado exclusivamente en la marca Porsche, que permite recorrer su historia y conducir modelos icónicos a través de varias décadas."
+            },
+            new Item
+            {
+                Id = 7,
+                Titulo = "Emergency 4: Global Fighters for Life",
+                Genero = "Estrategia / Simulación de rescate",
+                Ano = 2006,
+                Consola = "PC",
+                Descripcion = "Un simulador de estrategia en tiempo real donde gestionas servicios de emergencia (bomberos, policía y médicos) para resolver desastres, accidentes y situaciones de crisis."
             }
 
         };
